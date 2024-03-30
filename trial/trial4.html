@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Menu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1T/vQ0uqAHD9qqp29ZlO4HSAQlCZ1zF+vY9/9+Cp6mDnuUW6N8+bHfx48UpF1RrnWtXP8DSckfnwPQZRTxGJRg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .topbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+      }
+
+      .topbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .topbar ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .topbar ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 20;
+        left: -250px;
+        background-color: #aa8b8b;
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .sidebar ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+
+      .sidebar ul li {
+        padding: 10px 15px;
+        color: #fff;
+        background-color: aqua;
+        cursor: pointer;
+      }
+
+      .sidebar ul li:hover {
+        background-color: #555;
+      }
+
+      .sidebar ul li ul {
+        display: none;
+        background-color: #444;
+      }
+
+      .sidebar ul li:hover > ul {
+        display: block;
+      }
+
+      .sidebar ul li ul li {
+        padding-left: 30px;
+      }
+
+      .open-close-btn {
+        position: fixed;
+        bottom: 52px;
+        /* top: 10px; */
+        /* right: 10px; */
+        /* height: 15px; */
+        left: 10px;
+        /* background-color: #000000; */
+        /* color: #000000; */
+        border: 20px;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar">
+      <ul>
+        <li>
+          fruits names
+          <ul>
+            <li>
+              Bitter Fruits
+              <ul>
+                <li>Grapefruit</li>
+                <li>Olives</li>
+              </ul>
+            </li>
+            <li>
+              sweetFruits
+              <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Grapes</li>
+                <li>Mango</li>
+              </ul>
+            </li>
+            <li>
+              Neutral Fruits
+              <ul>
+                <li>Avocado</li>
+                <li>Cucumber</li>
+                <li>Zucchini</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!--  -->
+
+        <li>
+          Vegetables names
+          <ul>
+            <li>
+              Neutral Vegetables
+              <ul>
+                <li>Cucumber</li>
+                <li>Zucchini</li>
+                <li>Lettuce</li>
+                <li>Cabbage</li>
+              </ul>
+            </li>
+            <li>
+              Sweet Vegetables
+              <ul>
+                <li>Corn</li>
+                <li>Carrot</li>
+                <li>Beets</li>
+                <li>Sweet Potato</li>
+              </ul>
+            </li>
+            <li>
+              Savory Vegetables
+              <ul>
+                <li>Mushrooms</li>
+                <li>Tomatoes</li>
+                <li>Onions</li>
+                <li>Garlic</li>
+                <li>Spinach</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!--  -->
+
+        <li>
+          Flowers names
+          <ul>
+            <li>
+              Roses
+              <ul>
+                <li>Red Rose</li>
+                <li>White Rose</li>
+                <li>Pink Rose</li>
+                <li>Yellow Rose</li>
+                <li>Orange Rose</li>
+              </ul>
+            </li>
+            <li>
+              Jasmine
+              <ul>
+                <li>Mogra (Arabian Jasmine)</li>
+                <li>Bela (Night-blooming Jasmine)</li>
+                <li>Chameli (Common Jasmine)</li>
+                <li>Mallige (Mysore Jasmine)</li>
+              </ul>
+            </li>
+            <li>
+              Lotus
+              <ul>
+                <li>Kamal (Indian Lotus)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!--  -->
+      </ul>
+    </div>
+    <button class="open-close-btn" onclick="toggleSidebar()">
+      <img
+        src="./icons8-menu-50.png"
+        width="20"
+        height="20"
+        alt="Description"
+      />
+    </button>
+
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

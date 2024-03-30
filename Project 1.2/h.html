@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topbar and Sidebar Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar-toggle" onclick="toggleSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <div class="topbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li class="submenu">
+        <a href="#" onclick="toggleSubmenu('products')">Products</a>
+        <ul class="sub-menu" id="products-menu">
+          <li class="submenu">
+            <a href="#" onclick="showTable('Product 1')">Category 1</a>
+            <ul>
+              <li><a href="#" onclick="showTable('Product 1')">Product 1</a></li>
+              <li><a href="#" onclick="showTable('Product 2')">Product 2</a></li>
+              <li><a href="#" onclick="showTable('Product 3')">Product 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Category 2</a></li>
+          <li><a href="#">Category 3</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#" onclick="toggleSubmenu('services')">Services</a>
+        <ul class="sub-menu" id="services-menu">
+          <li><a href="#">Service 1</a></li>
+          <li><a href="#">Service 2</a></li>
+          <li><a href="#">Service 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Clients</a></li>
+    </ul>
+  </div>
+
+  <div id="main-center">
+    <!-- Content will be displayed here -->
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      var subMenus = document.querySelectorAll('.sub-menu');
+      sidebar.classList.toggle('active');
+      subMenus.forEach(function(menu) {
+        menu.classList.remove('active');
+      });
+    }
+
+    function toggleSubmenu(menuId) {
+      var menu = document.getElementById(menuId + '-menu');
+      var subMenus = document.querySelectorAll('.sub-menu');
+      subMenus.forEach(function(submenu) {
+        if (submenu.id !== menuId + '-menu') {
+          submenu.classList.remove('active');
+        }
+      });
+      menu.classList.toggle('active');
+    }
+
+    function showTable(productName) {
+      var mainCenter = document.getElementById('main-center');
+      mainCenter.innerHTML = '<h2>' + productName + '</h2><table><thead><tr><th>Column 1</th><th>Column 2</th></tr></thead><tbody><tr><td>Data 1</td><td>Data 2</td></tr><tr><td>Data 3</td><td>Data 4</td></tr></tbody></table>';
+    }
+  </script>
+</body>
+</html>

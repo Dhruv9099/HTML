@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Topbar and Leftside Menus</title>
+    <style>
+        /* CSS for topbar menu */
+        #topbar {
+            background-color: #333;
+            color: #fff;
+            height: 50px;
+            padding: 10px;
+        }
+
+        /* CSS for leftside menu */
+        #leftside {
+            background-color: #eee;
+            color: #333;
+            height: 100%;
+            padding: 10px;
+            position: fixed;
+            top: 50px;
+            left: -200px;
+            transition: left 0.5s;
+        }
+
+        #leftside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #leftside ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #leftside ul li:hover {
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        /* CSS for submenu */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .submenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .submenu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .submenu ul li:hover {
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        /* CSS for deep submenu */
+        .deep-submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .deep-submenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .deep-submenu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .deep-submenu ul li:hover {
+            background-color: #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Topbar menu -->
+    <div id="topbar">
+        Topbar menu
+    </div>
+
+    <!-- Leftside menu -->
+    <div id="leftside">
+        <ul>
+            <li>Menu 1</li>
+            <li>Menu 2
+                <!-- Submenu -->
+                <div class="submenu">
+                    <ul>
+                        <li>Submenu 1</li>
+                        <li>Submenu 2
+                            <!-- Deep submenu -->
+                            <div class="deep-submenu">
+                                <ul>
+                                    <li>Deep submenu 1</li>
+                                    <li>Deep submenu 2</li>
+                                    <li>Deep submenu 3</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Submenu 3</li>
+                    </ul>
+                </div>
+            </li>
+            <li>Menu 3</li>
+        </ul>
+    </div>
+
+    <!-- Button to open/close leftside menu -->
+    <button id="menu-button">Open/Close Menu</button>
+
+    <!-- JavaScript to open/close leftside menu and animate from left to right -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Button to open/close leftside menu
+            $("#menu-button").click(function() {
+                $("#leftside").animate({left: "0px"}, 500);
+            });
+
+            // Button to close leftside menu
+            $("#leftside").click(function() {
+                $("#leftside").animate({left: "-200px"}, 500);
+            });
+
+            // Submenu
+            $("#leftside ul li").has(".submenu").click(function() {
+                $(this).children(".submenu").toggle();
+            });
+
+            // Deep submenu
+            $(".submenu ul li").has(".deep-submenu").click(function() {
+                $(this).children(".deep-submenu").toggle();
+            });
+        });
+    </script>
+</body>
+</html>

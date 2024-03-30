@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Sidebar Menu</title>
+<style>
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sub-menu {
+  display: none;
+}
+
+.deep-sub-menu {
+  display: none;
+  padding-left: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <button id="toggleButton">Toggle Menu</button>
+  <ul id="menu">
+    <li><a href="#">Menu Item 1</a></li>
+    <li class="submenu">
+      <a href="#">Menu Item 2</a>
+      <ul class="sub-menu">
+        <li><a href="#">Submenu Item 1</a></li>
+        <li class="deep-submenu">
+          <a href="#">Submenu Item 2</a>
+          <ul class="deep-sub-menu">
+            <li><a href="#">Deep Submenu Item 1</a></li>
+            <li><a href="#">Deep Submenu Item 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Menu Item 3</a></li>
+  </ul>
+</div>
+
+<script>
+document.getElementById("toggleButton").addEventListener("click", function() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+});
+
+var submenuItems = document.querySelectorAll(".submenu > a");
+submenuItems.forEach(function(item) {
+  item.addEventListener("click", function(event) {
+    event.preventDefault();
+    this.nextElementSibling.classList.toggle("show");
+  });
+});
+
+var deepSubmenuItems = document.querySelectorAll(".deep-submenu > a");
+deepSubmenuItems.forEach(function(item) {
+  item.addEventListener("click", function(event) {
+    event.preventDefault();
+    this.nextElementSibling.classList.toggle("show");
+  });
+});
+</script>
+
+</body>
+</html>

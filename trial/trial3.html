@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topbar and Left Sidebar Menu</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.topbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.topbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topbar li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.topbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  
+  width: 250px;
+  height: 100%;
+  background-color: #050404;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: #ea0808;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.sub-menu {
+  display: none;
+  padding-left: 20px;
+}
+
+.deep-sub-menu {
+  display: none;
+  padding-left: 40px;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<div class="sidebar">
+  <button id="toggleButton">Toggle Menu</button>
+  <ul id="menu">
+    <li><a href="#">Menu Item 1</a></li>
+    <li class="submenu">
+      <a href="#">Menu Item 2</a>
+      <ul class="sub-menu">
+        <li><a href="#">Submenu Item 1</a></li>
+        <li class="deep-submenu">
+          <a href="#">Submenu Item 2</a>
+          <ul class="deep-sub-menu">
+            <li><a href="#">Deep Submenu Item 1</a></li>
+            <li><a href="#">Deep Submenu Item 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Menu Item 3</a></li>
+  </ul>
+</div>
+
+<script>
+document.getElementById("toggleButton").addEventListener("click", function() {
+  var sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle("open");
+});
+
+var submenuItems = document.querySelectorAll(".submenu > a");
+submenuItems.forEach(function(item) {
+  item.addEventListener("click", function(event) {
+    event.preventDefault();
+    this.nextElementSibling.classList.toggle("show");
+  });
+});
+
+var deepSubmenuItems = document.querySelectorAll(".deep-submenu > a");
+deepSubmenuItems.forEach(function(item) {
+  item.addEventListener("click", function(event) {
+    event.preventDefault();
+    this.nextElementSibling.classList.toggle("show");
+  });
+});
+</script>
+
+</body>
+</html>
