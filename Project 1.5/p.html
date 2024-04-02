@@ -17,9 +17,9 @@ body {
 }
 
 #sidebar {
-  position: relative;
-  left: -200px;
-  top: 20px; /* Adjust according to your top bar height */
+  position: fixed;
+  /* left: 200px; */
+  /*top: 20px;  Adjust according to your top bar height */
   width: 200px;
   height: 100%;
   background-color: #333;
@@ -29,7 +29,7 @@ body {
 }
 
 #sidebar.open {
-  left: 0;
+  left: 10;
   background-color: #333;
 
 }
@@ -80,7 +80,7 @@ body {
 
 <!-- Sidebar menu -->
 <div id="sidebar">
-    <div id="sidebar-toggle">&#9776;</div>
+    <!-- <div id="sidebar-toggle">&#9776;</div> -->
 
   <div class="menu-item" onclick="toggleSubMenu('submenu1')">Menu Item 1</div>
   <div class="sub-menu" id="submenu1">

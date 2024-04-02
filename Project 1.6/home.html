@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exocube website
+  </title>
+</head>
+<body>
+
+
+  <style>
+      .top-bar {
+        position: relative;
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 20px;
+      }
+
+      .top-bar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .top-bar ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .top-bar ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .sidebar  .l1{
+       
+        position: fixed;
+            top: 0;
+            margin-top: 70px;
+            left: 0;
+            height: 100%;
+            width: 160px;
+            background: #000000;
+            z-index: 100;
+            transition: all 0.5s ease;
+        color: red;
+      }
+      .sidebar  .l2{
+        position: relative;
+        left: 320px;;
+        background: rgb(195, 255, 0);
+      }
+      .sidebar  .l3{
+        position: relative;
+        left: 520px;
+
+        background: rgb(0, 210, 28);
+      }
+
+  </style>
+  <div class="top-bar">
+    <ul>
+      <li><img src="./exocube-high-resolution-logo.png" alt="Logo" width="150px" height="50" ></li>
+      <li><a href="#">Source</a></li>
+      <li><a href="#">Data Migration</a></li>
+      <li><a href="#">Rollback</a></li>
+      <li><a href="#">Code Translation</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar">
+    <ul>
+      <li >
+        <a href="#"class="l1" >MSSQL</a>
+        <ul>
+          <text>Schema close button</text>
+          <li class="l2"><a href="#">DEV</a>
+            <ul>
+              <text>Table close button</text>
+              <li class="l3">
+                
+                <ul>
+                  <li><a href="#">Order_items</a></li>
+                  <li><a href="#">Orders</a></li>
+                  <li><a href="#">items</a></li>
+                  <li><a href="#">ingredients</a></li>
+                  <li><a href="#">recipes</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="l2"><a href="#">KAGGLE</a></li>
+          <li class="l2"><a href="#">OLIST</a></li>
+          <li class="l2"><a href="#">OLIST_RAW</a></li>
+          <li class="l2"><a href="#">OLIST_OLTP</a></li>
+          <li class="l2"><a href="#">OLIST_DW</a></li>
+          <li class="l2"><a href="#">WideWorldImporters</a></li>
+        </ul>
+      </li>
+
+      <li >
+        <a href="#" class="l1">MSSQL</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+</body>
+</html>

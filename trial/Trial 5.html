@@ -42,10 +42,10 @@
 
       .sidebar {
         height: 100%;
-        width: 250px;
+        width: 500px;
         position: fixed;
         top: 20;
-        left: -250px;
+        left: -950px;
         background-color: #aa8b8b;
         overflow-x: hidden;
         transition: 0.5s;
@@ -53,6 +53,13 @@
 
       .sidebar.open {
         left: 0;
+        width: 250px;
+
+      }
+      .sidebar.open:hover {
+        left: 0;
+        width: 450px;
+
       }
 
       .sidebar ul {
@@ -102,9 +109,27 @@
 
 
 
-      .sidebar .level-1 li{
-      color: red ;
+      .sidebar #level-1 {
+      color: rgb(255, 19, 19) ;
+      position: relative;
       }
+
+      .sidebar #level-1 li {
+      /* color: rgb(208, 183, 183) ; */
+      position: relative;
+      left: 100px;
+      }
+
+      .sidebar #level-2 {
+      color: rgb(15, 185, 0) ;
+      position:relative;
+      left: 20px;
+      }
+      .sidebar #level-3 >li{
+      color: rgb(0, 50, 199) ;
+      position:relative;
+  
+    }
     </style>
   </head>
   <body>
@@ -118,20 +143,20 @@
 
     <div class="sidebar">
       <ul>
-        <li class="level-1">
+        <li id="level-1">
           fruits names
           <ul >
-            <li class="level-2">
+            <li id="level-2">
               Bitter Fruits
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Grapefruit</li>
                 <li>Olives</li>
               </ul>
             </li >
 
-            <li class="level-2">
+            <li id="level-2">
               sweetFruits
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Apple</li>
                 <li>Banana</li>
                 <li>Grapes</li>
@@ -139,9 +164,9 @@
               </ul>
             </li>
 
-            <li class="level-2">
+            <li id="level-2">
               Neutral Fruits
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Avocado</li>
                 <li>Cucumber</li>
                 <li>Zucchini</li>
@@ -152,30 +177,30 @@
 
         <!--  -->
 
-        <li class="level-1">
+        <li id="level-1"> 
           Vegetables names
           <ul>
-            <li class="level-2">
+            <li id="level-2">
               Neutral Vegetables
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Cucumber</li>
                 <li>Zucchini</li>
                 <li>Lettuce</li>
                 <li>Cabbage</li>
               </ul>
             </li>
-            <li class="level-2">
+            <li id="level-2">
               Sweet Vegetables
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Corn</li>
                 <li>Carrot</li>
                 <li>Beets</li>
                 <li>Sweet Potato</li>
               </ul>
             </li>
-            <li class="level-2">
+            <li id="level-2">
               Savory Vegetables
-              <ul  class="level-3">
+              <ul  id="level-3">
                 <li>Mushrooms</li>
                 <li>Tomatoes</li>
                 <li>Onions</li>
@@ -185,14 +210,13 @@
             </li>
           </ul>
         </li>
-        <!--  -->
 
-        <li class="level-1">
+     <li id="level-1">
           Flowers names
           <ul>
-            <li  class="level-2">
+            <li  id="level-2">
               Roses
-              <ul  class="level-3">
+              <ul  id="level-3">
                 <li>Red Rose</li>
                 <li>White Rose</li>
                 <li>Pink Rose</li>
@@ -200,23 +224,27 @@
                 <li>Orange Rose</li>
               </ul>
             </li>
-            <li class="level-2">
+            <li id="level-2">
               Jasmine
-              <ul  class="level-3">
+              <ul  id="level-3">
                 <li>Mogra (Arabian Jasmine)</li>
                 <li>Bela (Night-blooming Jasmine)</li>
                 <li>Chameli (Common Jasmine)</li>
                 <li>Mallige (Mysore Jasmine)</li>
               </ul>
             </li>
-            <li class="level-2">
+            <li id="level-2">
               Lotus
-              <ul class="level-3">
+              <ul id="level-3">
                 <li>Kamal (Indian Lotus)</li>
               </ul>
             </li>
           </ul>
-        </li>
+        </li> 
+
+
+
+
         <!--  -->
       </ul>
     </div>

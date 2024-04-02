@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Side Menu</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 240px;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu li {
+        position: relative;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+    .menu li:hover {
+        background-color: #555;
+    }
+
+    .sub-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color: #444;
+    }
+
+    .sub-menu.open {
+        display: block;
+    }
+
+    .deep-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200px;
+        background-color: #555;
+    }
+
+    .deep-menu.open {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -240px; /* Initially hidden */
+        width: 240px;
+        height: 100%;
+        background-color: #333;
+        color: #fff;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0; /* Visible when open */
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px;
+    }
+
+    .sidebar li {
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+    .sidebar li:hover {
+        background-color: #555;
+    }
+
+</style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li onclick="toggleSubMenu('submenu1')">Main Menu 1
+                <ul id="submenu1" class="sub-menu">
+                    <li onclick="toggleDeepSubMenu('deepsubmenu1')">Sub Menu 1</li>
+                    <li onclick="toggleDeepSubMenu('deepsubmenu2')">Sub Menu 2
+                        <ul id="deepsubmenu1" class="deep-menu">
+                            <li>Deep Menu 1</li>
+                            <li>Deep Menu 2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Main Menu 2
+                <ul class="sub-menu">
+                    <li>Sub Menu 3</li>
+                    <li>Sub Menu 4</li>
+                </ul>
+            </li>
+            <li>Main Menu 3
+                <ul class="sub-menu">
+                    <li>Sub Menu 5</li>
+                    <li>Sub Menu 6</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li>Sidebar Item 1</li>
+            <li>Sidebar Item 2</li>
+            <li>Sidebar Item 3</li>
+        </ul>
+    </div>
+
+    <button id="sidebar-toggle">Toggle Sidebar</button>
+
+<script>
+// JavaScript for handling submenu toggles
+function toggleSubMenu(id) {
+  var submenu = document.getElementById(id);
+  if (submenu.style.display === "block") {
+    submenu.style.display = "none";
+    closeDeepSubMenus();
+  } else {
+    closeSubMenus();
+    submenu.style.display = "block";
+  }
+}
+
+function toggleDeepSubMenu(id) {
+  var deepsubmenu = document.getElementById(id);
+  if (deepsubmenu.style.display === "block") {
+    deepsubmenu.style.display = "none";
+  } else {
+    closeDeepSubMenus();
+    deepsubmenu.style.display = "block";
+  }
+}
+
+function closeSubMenus() {
+  var submenus = document.querySelectorAll('.sub-menu');
+  submenus.forEach(function(submenu) {
+    submenu.style.display = 'none';
+  });
+  closeDeepSubMenus();
+}
+
+function closeDeepSubMenus() {
+  var deepsubmenus = document.querySelectorAll('.deep-menu');
+  deepsubmenus.forEach(function(deepsubmenu) {
+    deepsubmenu.style.display = 'none';
+  });
+}
+
+// JavaScript for handling sidebar toggle
+var sidebar = document.getElementById('sidebar');
+var sidebarToggle = document.getElementById('sidebar-toggle');
+
+sidebarToggle.addEventListener('click', function() {
+  sidebar.classList.toggle('open');
+});
+</script>
+</body>
+</html>
